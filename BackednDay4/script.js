@@ -1,30 +1,34 @@
-/** @format */
 const express = require("express");
 const app = express();
 
-// 1️⃣ Set the view engine to EJS
-app.set("view engine", "ejs");
+app.use((req, res, next) => {
+  console.log("Route changed to:", req.url);
+  next();
+});
 
-// 2️⃣ Set the folder where your EJS files are stored
-app.set("views", "./views");
+app.get("/", (req, res) => res.send("Hello World!"));
 
-// 3️⃣ Routes
-// app.get("/:id", (req, res) => {
-//   let { id } = req.params;
-//   res.render("index", { id }); // no need to write .ejs
-// });
+app.get("/hello", (req, res) => {
+  res.send("Hello Rupesh!");
+});
 
 app.get("/home", (req, res) => {
-  res.render("home");
+  res.send("This is the home page.");
 });
 
 app.get("/about", (req, res) => {
-  res.render("about"); // file name should be lowercase (best practice)
+  res.send("This is the about page.");
 });
 
 app.get("/contact", (req, res) => {
-  res.render("contact");
+  res.send("This is the contact page.");
 });
 
-// 4️⃣ Start the server
-app.listen(3000, () => console.log("Example app listening on port 3000!"));
+app.use((req, res) => {
+  res.status(404).send("404 Error: Page Not Found");
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
+});
