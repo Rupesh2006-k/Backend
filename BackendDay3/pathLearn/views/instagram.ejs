@@ -1,0 +1,22 @@
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        img { width: 150px; height: 150px; border-radius: 50%; }
+        button { margin: 5px; padding: 10px 20px; cursor: pointer; }
+        hr { margin: 20px 0; }
+    </style>
+<%- include('kuch/head.ejs',); %>
+
+<body>
+    <h1>The account is @<%= user.name %></h1>
+    <img src="<%= user.image %>" alt="<%= user.name %>">
+    <div>
+        <button>Follow</button>
+        <button>Followers: <%= user.followers %></button>
+        <button>Following: <%= user.following %></button>
+    </div>
+    <div>
+        <p>Likes: <%= user.likes %> | Comments: <%= user.comments %></p>
+    </div>
+    <hr>
+    <%- include('kuch/footer.ejs') %>
+</body>

@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Rupesh",
+    "image": "https://images.unsplash.com/photo-1759845565546-d4b85791470b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070",
+    "followers": 1500,
+    "following": 180,
+    "likes": 1200,
+    "comments": 300
+  },
+  {
+    "name": "Amit",
+    "image": "https://plus.unsplash.com/premium_photo-1760435835227-e551f67f9654?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=600",
+    "followers": 2000,
+    "following": 220,
+    "likes": 1800,
+    "comments": 400
+  }
+]
