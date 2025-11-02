@@ -10,5 +10,4 @@ let userSchema = mongoose.Schema({
 
 // mongoose.model(naam , Schema)
 
-
 module.exports = mongoose.model("users", userSchema)

@@ -3,17 +3,21 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-let path = require('path')
-// parsers
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
 
-app.use(express.static(path.join(__dirname,'public')))
+let userModel = require("./users.js");
 
-app.set('view engine' , 'ejs');
-// app.set('./views' ,'views')
-
-app.get("/", (req, res) => {
-  res.render('index')
+app.get("/", (req, res) => res.send("Hello World!"));
+app.get("/userModel", async (req, res) => {
+  try {
+    let data = await userModel.create({
+      userName: "Rupesh",
+      name: "rupesh",
+      age: 18,
+    });
+    res.send(data);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 });
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
