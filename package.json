@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/Rupesh2006-k/Backend/issues"
   },
-  "homepage": "https://github.com/Rupesh2006-k/Backend#readme"
+  "homepage": "https://github.com/Rupesh2006-k/Backend#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "mongoose": "^8.19.2"
+  }
 }

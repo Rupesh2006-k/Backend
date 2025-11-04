@@ -1,0 +1,44 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Blog Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <form class="bg-white p-6 rounded-lg shadow w-full max-w-sm space-y-3">
+      <h2 class="text-xl font-bold text-center text-blue-600">📝 Blog Form</h2>
+
+      <input type="number" placeholder="ID" name="id" class="w-full p-2 border rounded" />
+      <input
+      name="title"
+        type="text"
+        placeholder="Title"
+        class="w-full p-2 border rounded"
+      />
+      <input
+        type="text"
+        placeholder="Author"
+        name="author"
+        class="w-full p-2 border rounded"
+      />
+      <input type="date" class="w-full p-2 border rounded" />
+      <input
+        type="text"
+        name="tags"
+        placeholder="Tags (comma separated)"
+        class="w-full p-2 border rounded"
+      />
+      <textarea rows="3" name="content" class="w-full p-2 border rounded"></textarea>
+
+      <button
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded"
+      >
+        Submit 🚀
+      </button>
+    </form>
+  </body>
+</html>

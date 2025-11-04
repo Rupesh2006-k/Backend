@@ -37,9 +37,11 @@ app.post("/add-post", (req, res) => {
 app.get("/view-post", (req, res) => {
   res.render("viewPost", { blogs });
 });
+
+
 app.get("/view-post/:id", (req, res) => {
   const { id } = req.params;
-  const blog = blogs.find((b) => b.id === parseInt(id)); // safer way to match id
+  const blog = blogs.find((b) => b.id === parseInt(id));
 
   if (!blog) {
     return res.status(404).send("Post not found 😢");
@@ -50,9 +52,11 @@ app.get("/view-post/:id", (req, res) => {
 
 app.get("/update-post/:id", (req, res) => {
   let { id } = req.params;
-  console.log(id);
-  res.send(" update post");
+  console.log("🔥 ID Received:", id);
+  res.send(`ID is: ${id}`);
 });
+
+
 app.get("/delete-post/:id", (req, res) => {
   let { id } = req.params;
   console.log(id);
