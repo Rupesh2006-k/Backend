@@ -1,20 +1,26 @@
 /** @format */
 
-var express = require("express");
-var router = express();
-let userModel = require("./users");
+const express = require("express");
+const connectDb = require("./db");
+const User = require("./users");
+const app = express();
+const port = 3000;
 
-/* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
-});
-router.get("/create", async function (req, res) {
-  let createdUser = await userModel.create({
-    userName: "Rupesh Kushwaha",
-    name: "Rupesh",
-    age: 18,
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+connectDb();
+app.set("view engine", "ejs");
+
+app.get("/", (req, res) => res.send("Hello World!"));
+
+app.post("/user", async (req, res) => {
+  const { email, fullName } = req.body;
+  const savedUser = await User.create({
+    email,
+    fullName,
   });
-  res.send(createdUser);
+  res.status(201).json({message:"user created successfully",user:savedUser})
 });
 
-module.exports = router;
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));

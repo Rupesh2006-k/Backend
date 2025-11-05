@@ -10,32 +10,15 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
 app.get("/", (req, res) => {
-  // console.log(data);
-  res.send("Hello World!");
-});
-app.post("/add-post", (req, res) => {
-  const val = req.body; // ✅ define it first
-  console.log("New Post Received:", val);
-
-  const newBlog = {
-    id: parseInt(val.id),
-    title: val.title,
-    author: val.author,
-    date: val.date,
-    tags: val.tags.split(",").map(t => t.trim()),
-    content: val.content
-  };
-
-  blogs.push(newBlog); // ✅ save data
-
-  // ✅ redirect after saving
-  res.redirect("/");
-});
-
-
-app.get("/view-post", (req, res) => {
   res.render("viewPost", { blogs });
+});
+
+app.get("/addpost/:id", (req, res) => {
+  const {id} = req.params; // ✅ 
+  res.render("addPost")
+  console.log("New Post Received:", id);
 });
 
 
@@ -55,7 +38,6 @@ app.get("/update-post/:id", (req, res) => {
   console.log("🔥 ID Received:", id);
   res.send(`ID is: ${id}`);
 });
-
 
 app.get("/delete-post/:id", (req, res) => {
   let { id } = req.params;

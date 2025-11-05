@@ -1,11 +1,16 @@
 const mongoose = require("mongoose");
-
-mongoose.connect("mongodb://localhost:27017/DataBase");
-let userData = mongoose.Schema({
-  userName: String,
-  name: String,
-  age: Number,
+const userSchema = new mongoose.Schema({
+  email:{
+    type:String,
+    unique:true,
+    required:true,
+  },
+  fullName:{
+    type:String,
+    required:true,
+  }
 });
 
-// mongoose.model(naam , schema)
-module.exports = mongoose.Schema("users", userData);
+const User = mongoose.model("User",userSchema);
+
+module.exports= User;
