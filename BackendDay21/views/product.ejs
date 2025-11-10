@@ -1,0 +1,21 @@
+<!-- @format -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Product</title>
+  </head>
+  <body>
+    <h2>Create Product 🛒</h2>
+    <form action="/create" method="post">
+      <input type="text" name="name" placeholder="Product Name" required /><br />
+      <input type="number" name="price" placeholder="Enter Price" required /><br />
+      <input type="text" name="category" placeholder="Enter Category" required /><br />
+      <label>
+        <input type="checkbox" name="inStock" /> In Stock
+      </label><br />
+      <button type="submit">Create Product</button>
+    </form>
+  </body>
+</html>

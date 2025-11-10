@@ -1,5 +1,0 @@
-node
-code run
-comand : npm init -y
-pakage
-port
