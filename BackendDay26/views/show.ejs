@@ -1,0 +1,50 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Details</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 dark:bg-gray-900 min-h-screen p-6 flex flex-col items-center justify-start transition duration-300">
+
+    <!-- Header -->
+    <h1 class="text-4xl font-extrabold text-center mb-12 text-gray-800 dark:text-gray-100 drop-shadow-sm">
+      Post Details
+    </h1>
+
+    <!-- Post Card -->
+    <div class="max-w-3xl w-full space-y-6">
+
+      <div class="bg-white dark:bg-gray-800 shadow-lg rounded-2xl p-8 hover:shadow-2xl transition-all border border-transparent dark:border-gray-700 transform hover:-translate-y-1">
+        
+        <!-- Username -->
+        <h2 class="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-3">
+          <%= postData.username %>
+        </h2>
+
+        <!-- Content -->
+        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-5 text-lg">
+          <%= postData.content %>
+        </p>
+
+        <!-- Post Info -->
+        <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-5">
+          <span>Post ID: <%= postData.id %></span>
+          <span class="italic">Posted just now</span>
+        </div>
+
+        <!-- Back Link -->
+        <a href="/posts" class="inline-block text-indigo-600 dark:text-indigo-400 hover:underline font-medium transition">
+          ← Back to Home
+        </a>
+
+      </div>
+    </div>
+  </body>
+</html>
