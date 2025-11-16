@@ -1,0 +1,38 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profiles</title>
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 min-h-screen text-gray-900">
+    <div class="max-w-3xl mx-auto py-10 px-4">
+      <h1 class="text-3xl font-bold mb-6 text-center">User Profiles</h1>
+
+      <div class="flex justify-center mb-8">
+        <a
+          href="/add"
+          class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all shadow"
+        >
+          Add New User
+        </a>
+      </div>
+
+      <ul class="space-y-4">
+        <% users.forEach(elem => { %>
+        <li class="bg-white p-4 rounded-xl shadow flex justify-between">
+          <span class="font-semibold"> <%= elem.name%> </span>
+          <span class="text-gray-600"> <%= elem.age%> </span>
+        </li>
+      <%  }); %>
+
+      </ul>
+    </div>
+  </body>
+</html>
