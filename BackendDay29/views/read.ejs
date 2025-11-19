@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Read All Users</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+
+<body class="bg-green-50 min-h-screen p-10 text-green-900">
+<a href="/" class="text-green-700 font-semibold hover:text-green-900 underline">⇦ Go to Home</a>
+
+
+<h1 class="text-4xl font-extrabold mb-10 mt-4 text-green-700 tracking-wide">Read All Users</h1>
+
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+
+
+<!-- Card Example -->
+<% user.forEach((val)=>{ %>
+<div class="p-6 w-[260px] rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all border border-green-300 hover:scale-[1.03]">
+<div class="w-full h-48 bg-green-200 rounded-xl overflow-hidden shadow-md">
+<img src="<%=val.image%>" alt="User Image" class="w-full h-full object-cover" />
+</div>
+
+<h2 class="mt-4 text-xl font-bold"> <%=val.name%></h2>
+<p>Email : <%=val.email%> </p>
+
+
+<div class="mt-5 w-full flex justify-between text-md font-medium">
+<a href="/edit/<%=val._id%>" class="text-green-700 hover:text-green-900 font-semibold">Edit User</a>
+<a href="/delete/<%=val._id%>" class="text-red-600 hover:text-red-800 font-semibold">Delete User</a>
+</div>
+</div>
+<%}) %>
+
+
+
+
+</div>
+</body>
+</html>
