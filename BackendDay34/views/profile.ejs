@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body
+    class="bg-gradient-to-tr from-gray-100 to-gray-200 min-h-screen flex items-center justify-center p-4"
+  >
+    <div
+      class="max-w-md w-full bg-white p-8 rounded-3xl shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300"
+    >
+      <div class="flex justify-end">
+        <a
+          href="/logout"
+          class="text-red-500 hover:text-red-600 font-semibold text-sm"
+        >
+          Logout
+        </a>
+      </div>
+
+      <h2 class="text-3xl font-bold mb-6 text-center text-gray-900">Profile</h2>
+
+      <div class="text-center mb-8">
+        <div
+          class="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-md ring-2 ring-gray-300 mb-4"
+        >
+          <img
+            src="https://api.dicebear.com/7.x/initials/svg?seed=<%= user.name %>"
+            alt="avatar"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <h1 class="text-xl font-semibold text-gray-800"><%= user.name %></h1>
+        <p class="text-gray-600"><%= user.email %></p>
+        <p class="text-gray-600"><%= user.age %> years old</p>
+      </div>
+
+      <h2 class="text-lg font-semibold text-gray-800 mb-3">Create a Post</h2>
+
+      <form action="/post" method="post" class="space-y-4 mb-10">
+        <textarea
+          name="content"
+          placeholder="What's on your mind?"
+          class="w-full min-h-28 p-4 bg-gray-50 border border-gray-300 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 text-gray-700"
+        ></textarea>
+
+        <button
+          class="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl shadow-md transition"
+        >
+          Submit
+        </button>
+      </form>
+
+      <h2 class="text-xl font-bold text-gray-800 mb-4">Your Posts</h2>
+
+      <div class="space-y-4">
+
+        <% user.posts.reverse().forEach((post)=>{ %>
+        <div
+          class="p-4 bg-gray-50 border rounded-xl shadow-sm hover:shadow-md transition"
+        >
+          <h3 class="font-semibold text-gray-800"><%= user.name %></h3>
+          <p class="text-gray-600 text-sm mt-1"><%= post.content %></p>
+
+          <div class="flex gap-4 mt-3">
+           <a href="/like/<%= post._id %>" class="text-blue-500 hover:underline text-sm font-medium">Like</a>
+            <a
+              href="#"
+              class="text-green-600 hover:underline text-sm font-medium"
+              >Edit</a
+            >
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>
