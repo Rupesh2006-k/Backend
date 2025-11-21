@@ -1,13 +1,12 @@
-let mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-let connectDB = async ()=>{
-    try {
-        let res = mongoose.connect('mongodb://127.0.01:27017/association')
-        console.log("Connected");
-        
-    } catch (error) {
-        console.log("faield");
-    }
-}
+const connectDB = async () => {
+  try {
+    await mongoose.connect('mongodb://127.0.0.1:27017/multer');
+    console.log("Connected");
+  } catch (error) {
+    console.log("Failed", error);
+  }
+};
 
-module.exports = connectDB
+module.exports = connectDB;

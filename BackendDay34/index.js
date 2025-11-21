@@ -9,16 +9,64 @@ let postModel = require("./models/post");
 let bcrypt = require("bcrypt");
 const connectDB = require("./config/db");
 let jwt = require("jsonwebtoken");
+let crypto = require('crypto')
+
+let path = require('path')
 
 app.use(cookieParser());
 app.use(express.json());
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 connectDB();
-
+let multer = require('multer')
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+// multer
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/images/uploads')
+  },
+  filename: function (req, file, cb) {
+    crypto.randomBytes(12, (err , bytes)=>{
+      let fn = bytes.toString('hex') + path.extname(file.originalname)
+      cb(null, fn)
+    })
+  }
+})
+
+const upload = multer({ storage: storage })
+
+app.get('/test' , (req ,res)=>{
+  res.render('test')
+})
+
+app.post('/upload' , upload.single('image') , (req ,res)=>{
+  console.log('====================================');
+  console.log(req.file);
+  console.log('====================================');
+  res.render('test')
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.get("/login", (req, res) => {
   res.render("login");
 });

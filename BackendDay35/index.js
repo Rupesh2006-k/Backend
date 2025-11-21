@@ -1,30 +1,33 @@
-const express = require("express");
-const app = express();
-const port = 3000;
-let connectDB = require("./config/db");
-const productXModel = require("./models/productX");
-const productYModel = require("./models/productY");
-connectDB();
+const express = require('express')
+const upload = require('./config/multerConfig')
+const productXModel = require('./models/productX')
+const connectDB = require('./config/db')
+const app = express()
+const port = 3000
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+connectDB()
+// Show upload page
+app.get('/', (req, res) => {
+  res.render('test')
+})
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.get('/profile', async (req, res) => {
+  try {
+    let showimg = await productXModel.findOne({});
+    console.log(showimg);
+    res.render('profile', { showimg });
+  } catch (err) {
+    console.log(err);
+    res.send("Error loading profile");
+  }
 });
-
-app.get("/add", async (req, res) => {
-  // 1. Create ProductY
-  let y = await productYModel.create({
-    name: "Small Box",
-    price: 200,
-  });
-
-  // 2. Create ProductX and link ProductY inside it
-  let x = await productXModel.create({
-    name: "Main Product",
-    price: 999,
-    productsY: [y._id],
-  });
-
-  res.send({ x, y });
-});
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+// Handle file upload
+app.post('/upload', upload.single('image'),async (req, res) => {
+  console.log()
+  let img = await productXModel.create({
+    pic:req.file.filename
+  })
+  res.redirect("/profile")
+})
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
