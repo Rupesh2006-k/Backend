@@ -20,14 +20,5 @@ app.post("/uploads", uploadMenory.single("image"), (req, res) => {
     const base64 = req.file.buffer.toString("base64");
     res.render("images", { pic: base64 });
 });
-// app.post("/uploads", uploadMenory.single("image"), (req, res) => {
-//     console.log("====================================");
-//   console.log(req.file.buffer); // actual image data in RAM
-//   //   let pic = req.file.filename;
-//   //   console.log(pic);
-//   console.log("====================================");
-//   //   res.render("images",{ pic });
-//   res.send("Uploaded using memory storage!");
-// });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
