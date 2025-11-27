@@ -1,0 +1,48 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/styleSheets/style.css" />
+  </head>
+  <body>
+    <h1>All chats</h1>
+    <button>
+      <a href="http://localhost:3000/chats/new">Create Chat</a>
+    </button>
+    <main id="mainBox">
+
+    <div class="container">
+      <% chat.reverse().forEach((elem) => { %>
+      <div class="chat">
+        <p>From : <%= elem.from %></p>
+        <div class="msg">
+          <p><%= elem.msg %></p>
+          <div id="editorDelete">
+            <form action="/chats/<%= elem._id %>/edit">
+              <button>Edit</button>
+            </form>
+            <form action="/chats/<%=elem._id%>?_method=DELETE" method="post">
+              <button>Delete</button>
+            </form>
+          </div>
+        </div>
+        <p>Received by : <%= elem.to %></p>
+      </div>
+      <hr />
+      <div class="history">
+        <p><%= elem.createdAt.toString().split(" ")[4] %></p>
+        <p>
+          <%= elem.createdAt.toString().split(" ").splice(0 , 4).join(' ') %>
+        </p>
+      </div>
+      <% }) %>
+    </div>
+
+    </main>
+
+  </body>
+</html>

@@ -1,0 +1,117 @@
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  padding: 30px;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  letter-spacing: 1px;
+}
+
+/* Create Chat Button */
+button a {
+  text-decoration: none;
+  color: white;
+}
+
+button {
+  background: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background: #005fcc;
+}
+
+/* Main Layout */
+#mainBox {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 60%;
+}
+
+/* Single Chat Box */
+.chat {
+  background: white;
+  padding: 15px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* Message Bubble */
+.msg {
+  background: #eef2ff;
+  padding: 10px 15px;
+  border-left: 4px solid #5a67d8;
+  border-radius: 6px;
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Edit + Delete Buttons */
+#editorDelete button {
+   background: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  color: #eef2ff;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-bottom: 20px;
+}
+
+#editorDelete button:hover {
+   background: #005fcc;
+}
+
+/* History / Timestamp */
+.history {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 14px;
+  padding: 5px 2px 20px 2px;
+}
+
+button {
+    background: #4f46e5;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    display: block;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+button:hover {
+    background: #4338ca;
+}

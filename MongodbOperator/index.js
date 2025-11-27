@@ -39,23 +39,6 @@ let UserModel = require("./models/user.model");
 
 //   res.send(find);
 // });
-// app.get("/find", async (req, res) => {
-//   let find = await UserModel.updateOne(
-//     { name: "Harshit Rao" },
-//     { $pull: { age: 27 } } // last item remove
-//   );
 
-//   res.send(find);
-// });
-
-
-app.get("/find", async (req, res) => {
-  let find = await UserModel.updateOne(
-    { name: "Harshit Rao" },
-    { $pull: { age: 27 } } // last item remove
-  );
-
-  res.send(find);
-});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
