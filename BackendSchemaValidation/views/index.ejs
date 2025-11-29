@@ -28,6 +28,9 @@
             <form action="/chats/<%=elem._id%>?_method=DELETE" method="post">
               <button>Delete</button>
             </form>
+            <form action="/chats/<%=elem._id%>" method="get">
+              <button>show</button>
+            </form>
           </div>
         </div>
         <p>Received by : <%= elem.to %></p>
