@@ -116,7 +116,25 @@ app.delete("/chats/:id", async (req, res, next) => {
   }
 });
 
+let handleValidation = (err)=>{
+  console.log("validation failed");
+  console.log(err.message);
+  return err
+  
+}
+
+app.use((err,req ,res ,next)=>{
+  console.log(err.name);
+  if(err.name = 'ValidationError'){
+    err = handleValidation(err)
+  }
+  next(err)
+  
+})
+
 /* ----------------- GLOBAL ERROR HANDLER ----------------- */
+
+
 
 app.use((err, req, res, next) => {
   let { status = 500, message = "Kuch toh gadbad ho gayi..." } = err;
